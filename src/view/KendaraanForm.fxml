@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.KendaraanController">
+<children>
+    <GridPane vgap="5.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="No. Plat" />
+            <Label text="Pemilik" GridPane.rowIndex="1" />
+            <Label text="Merek" GridPane.rowIndex="3" />
+            <Label text="Warna" GridPane.rowIndex="4" />
+            <Label text="Tahun Buat" GridPane.rowIndex="6" />
+            <Label text="Alamat" GridPane.rowIndex="2" />
+            <TextField fx:id="txtNoPlat" GridPane.columnIndex="1" />
+            <TextField fx:id="txtAlamat" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtMerek" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtWarna" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtTahunBuat" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#btnSaveMobilAction" text="Save Mobil">
+                        <HBox.margin>
+                            <Insets right="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#btnDeleteMobilAction" text="Delete Mobil">
+                        <HBox.margin>
+                            <Insets right="10.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button mnemonicParsing="false" onAction="#btnUpdateMobilAction" text="Update Mobil">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                    </Button>
+                </children>
+            </HBox>
+            <Label text="Keluhan" GridPane.rowIndex="5" />
+            <TextArea fx:id="txtKeluhan" prefHeight="47.0" prefWidth="445.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="comboUser" prefHeight="25.0" prefWidth="261.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        </children>
+        <VBox.margin>
+            <Insets bottom="3.0" />
+        </VBox.margin>
+        <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+        </padding>
+    </GridPane>
+    <TableView fx:id="KendaraanView" editable="true" prefHeight="246.0" prefWidth="600.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPlat" prefWidth="75.0" text="No. Plat" />
+            <TableColumn fx:id="colPemilik" prefWidth="75.0" text="Pemilik" />
+            <TableColumn fx:id="colKeluhan" prefWidth="75.0" text="Keluhan" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </VBox.margin>
+    </TableView>
+</children>
+</VBox>
