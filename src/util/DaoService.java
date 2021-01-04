@@ -6,7 +6,6 @@ import java.util.List;
 public interface DaoService<T> {
     List<T> fetchAll() throws SQLException, ClassNotFoundException;
     int addData(T object) throws SQLException, ClassNotFoundException;
-    List<T> showAllData() throws SQLException, ClassNotFoundException;
     int deleteData(T object) throws SQLException, ClassNotFoundException;
     int updateData(T object) throws SQLException, ClassNotFoundException;
 }
