@@ -15,7 +15,7 @@
           <TableColumn prefWidth="200.20004272460938" text="History Reparasi Kendaraan" />
         </columns>
       </TableView>
-      <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selamat Datang DI BengkelnyaKAK" wrappingWidth="513.129689220815">
+      <Text layoutX="43.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selamat Datang DI BengkelnyaKAK" wrappingWidth="513.129689220815">
          <font>
             <Font name="Segoe UI Semibold" size="32.0" />
          </font></Text>
