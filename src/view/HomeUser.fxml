@@ -9,8 +9,8 @@
       <Button layoutX="420.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="LogOut" />
       <TableView layoutX="14.0" layoutY="82.0" prefHeight="263.0" prefWidth="571.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn prefWidth="40.00000190734863" text="No." />
-          <TableColumn prefWidth="146.99999237060547" text="Nama Kendaraan" />
+          <TableColumn prefWidth="60.399993896484375" text="No. Plat" />
+          <TableColumn prefWidth="127.19998168945312" text="Nama Kendaraan" />
           <TableColumn prefWidth="172.20001220703125" text="Nama Pemilik Kendaraan" />
           <TableColumn prefWidth="200.20004272460938" text="History Reparasi Kendaraan" />
         </columns>
