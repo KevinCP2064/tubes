@@ -30,7 +30,7 @@
                         </ImageView>
                         <Button fx:id="btnLogin" layoutX="172.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#mouseLogin" prefHeight="48.0" prefWidth="256.0" text="Login" textFill="#bd4545">
                             <font>
-                                <Font name="Segoe UI Black Italic" size="22.0" />
+                                <Font name="Segoe UI Black" size="22.0" />
                             </font>
                         </Button>
                         <Text fill="#ac5a0d" layoutX="84.0" layoutY="59.0" stroke="#b76d6d" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's Login to Your Account" wrappingWidth="432.6708984375">
