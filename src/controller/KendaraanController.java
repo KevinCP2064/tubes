@@ -107,7 +107,19 @@ public class KendaraanController implements Initializable {
     }
 
     @FXML
-    private void btnDeleteKendaraan(ActionEvent actionEvent) {
+    private void btnDeleteKendaraan(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        Alert deleteconfirm = new Alert(Alert.AlertType.CONFIRMATION);
+        deleteconfirm.setContentText("yakin?");
+        deleteconfirm.setTitle("HAPUSSSS");
+        deleteconfirm.showAndWait();
+        if (deleteconfirm.getResult() == ButtonType.OK){
+            selectedItem.setNo_plat(txtNoPlat.getText());
+            getKendaraanDao().deleteData(selectedItem);
+            getkendaraans().clear();
+            getkendaraans().addAll(getKendaraanDao().fetchAll());
+            tabKendaraan.refresh();
+            clearForm();
+        }
     }
 
     @FXML
