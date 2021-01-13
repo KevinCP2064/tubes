@@ -17,7 +17,7 @@ public class KendaraanDao implements DaoService<Kendaraan> {
         List<Kendaraan> kendaraans = new ArrayList<>();
         try {
             Connection connection = MySQLConnection.createConnection();
-            String query ="Select * from kendaraan";
+            String query ="Select * from kendaraan join customer on kendaraan.id_customer=customer.id_customer";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs =ps.executeQuery();
             while(rs.next()){

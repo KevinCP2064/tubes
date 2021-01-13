@@ -21,7 +21,7 @@ public class KendaraanController implements Initializable {
     @FXML
     private TextField txtNoPlat;
     @FXML
-    private TextField txtPemiik;
+    private TextField txtPemilik;
     @FXML
     private TextField txtMerek;
     @FXML
@@ -41,11 +41,69 @@ public class KendaraanController implements Initializable {
     @FXML
     private TableColumn<Kendaraan, String> colKeluhan;
     private ObservableList<Kendaraan> kendaraans;
+    public Kendaraan selectedItem;
     private KendaraanDao kendaraanDao;
+    int hitung;
+
+    public KendaraanDao getKendaraanDao(){
+        if(kendaraanDao == null){
+            kendaraanDao = new KendaraanDao();
+        }
+        return kendaraanDao;
+    }
+    public ObservableList<Kendaraan> getkendaraans() throws SQLException, ClassNotFoundException {
+        if (kendaraans == null){
+            kendaraans = FXCollections.observableArrayList();
+            kendaraans.addAll(getKendaraanDao().fetchAll());
+        }
+        return kendaraans;
+    }
+    public void refresh() throws SQLException, ClassNotFoundException {
+        getkendaraans().clear();
+        getkendaraans().addAll(getKendaraanDao().fetchAll());
+    }
+
+    public void clearForm(){
+        txtNoPlat.clear();
+        txtPemilik.clear();
+        txtMerek.clear();
+        txtTahun.clear();
+        txtWarna.clear();
+        txtAlamat.clear();
+        txtKeluhan.clear();
+        tabKendaraan.getSelectionModel().clearSelection();
+        selectedItem = null;
+
+    }
+
 
     @FXML
     private void btnSaveKendaraan(ActionEvent actionEvent) {
 
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        if (txtNoPlat.getText().isEmpty() || txtPemilik.getText().isEmpty() || txtPemilik.getText().isEmpty() ||
+                txtMerek.getText().isEmpty() || txtWarna.getText().isEmpty() || txtTahun.getText().isEmpty() ||
+                txtKeluhan.getText().isEmpty()) {
+            alert.setTitle("Error");
+            alert.setContentText("Please fill category/name/id");
+            alert.show();
+        } else {
+            Kendaraan i = new Kendaraan();
+            i.setNo_plat(txtNoPlat.getText());
+            hitung = (int) kendaraans.stream().filter(p -> p.getNo_plat().equalsIgnoreCase(txtNoPlat.getText())).count();
+            if (hitung > 0) {
+                alert.setTitle("Error");
+                alert.setContentText("Duplicate item name");
+                alert.show();
+            } else {
+                i.setNo_plat(txtNoPlat.getText().trim());
+                i.setNama_pemilik(txtPemilik.getText().trim());
+                i.setMerk(txtMerek.getText().trim());
+                i.setWarna(txtWarna.getText());
+                i.setTahun(txtTahun.getText());
+                i.setKeluhan((txtKeluhan.getText()));
+            }
+        }
     }
 
     @FXML
@@ -53,7 +111,13 @@ public class KendaraanController implements Initializable {
     }
 
     @FXML
-    private void btnUpdateKendaraan(ActionEvent actionEvent) {
+    private void btnUpdateKendaraan(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        if (!txtNoPlat.getText().trim().isEmpty()) {
+            selectedItem.setNo_plat((txtNoPlat.getText().trim()));
+            getKendaraanDao().updateData(selectedItem);
+            refresh();
+            clearForm();
+        }
     }
 
     @Override
